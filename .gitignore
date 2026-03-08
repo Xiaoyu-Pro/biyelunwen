@@ -1,0 +1,13 @@
+.DS_Store
+Thumbs.db
+
+# Microsoft Office temporary files
+~$*.docx
+~$*.pptx
+~$*.xlsx
+
+# Editor metadata
+.idea/
+.vscode/
+*.swp
+*.swo
