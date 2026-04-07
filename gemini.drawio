@@ -1,0 +1,255 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="第 1 页" id="X8lLH0T3Q9UcMtmRzKRC">
+    <mxGraphModel dx="1222" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="RawDataInput" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D79B00;" value="&lt;b&gt;Raw Data Input&lt;/b&gt;&lt;br&gt;(Metric, Log, Trace)" vertex="1">
+          <mxGeometry height="60" width="120" x="70" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="raw_to_feat" edge="1" parent="1" source="RawDataInput" style="endArrow=classic;html=1;curved=1;fontSize=12;" target="FeatureEnhancement" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="130" />
+            </Array>
+            <mxPoint x="270" y="130" as="sourcePoint" />
+            <mxPoint x="320" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FeatureEnhancement" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;" value="&lt;b&gt;Feature Enhancement &amp;amp; Extraction&lt;/b&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="200" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="LogEncoder" parent="1" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Log Encoder" vertex="1">
+          <mxGeometry height="40" width="100" x="375" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="MetricEncoder" parent="1" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Metric Encoder" vertex="1">
+          <mxGeometry height="40" width="100" x="375" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="TraceEncoder" parent="1" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Trace Encoder" vertex="1">
+          <mxGeometry height="40" width="100" x="375" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="feat_to_log_enc" edge="1" parent="1" source="FeatureEnhancement" style="endArrow=open;dashed=1;endFill=0;endSize=8;html=1;" target="LogEncoder" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="425" y="160" as="sourcePoint" />
+            <mxPoint x="425" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="feat_to_metric_enc" edge="1" parent="1" source="FeatureEnhancement" style="endArrow=open;dashed=1;endFill=0;endSize=8;html=1;" target="MetricEncoder" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="425" y="160" as="sourcePoint" />
+            <mxPoint x="425" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="feat_to_trace_enc" edge="1" parent="1" source="FeatureEnhancement" style="endArrow=open;dashed=1;endFill=0;endSize=8;html=1;" target="TraceEncoder" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="425" y="160" as="sourcePoint" />
+            <mxPoint x="425" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z_log" parent="1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;i&gt;z&lt;sub&gt;log&lt;/sub&gt;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="40" x="490" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="z_metric" parent="1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;i&gt;z&lt;sub&gt;metric&lt;/sub&gt;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="50" x="490" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="z_trace" parent="1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;i&gt;z&lt;sub&gt;trace&lt;/sub&gt;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="20" width="50" x="490" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="LogEnc_to_zlog" edge="1" parent="1" source="LogEncoder" style="endArrow=classic;html=1;" target="z_log" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="475" y="190" as="sourcePoint" />
+            <mxPoint x="490" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MetricEnc_to_zmetric" edge="1" parent="1" source="MetricEncoder" style="endArrow=classic;html=1;" target="z_metric" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="475" y="240" as="sourcePoint" />
+            <mxPoint x="490" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TraceEnc_to_ztrace" edge="1" parent="1" source="TraceEncoder" style="endArrow=classic;html=1;" target="z_trace" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="475" y="290" as="sourcePoint" />
+            <mxPoint x="490" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GraphLearningContainer" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;" value="&lt;b&gt;Graph Construction &amp;amp; Graph Representation Learning&lt;/b&gt;" vertex="1">
+          <mxGeometry height="400" width="450" x="550" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="TraceMetricBranch" parent="1" style="swimlane;html=1;rounded=1;fillColor=#F5F5F5;strokeColor=#666666;" value="&lt;b&gt;Trace-Metric Branch&lt;/b&gt;" vertex="1">
+          <mxGeometry height="170" width="430" x="560" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="GITM_Constr" parent="TraceMetricBranch" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FFF2CC;strokeColor=#B6B6B6;" value="&lt;b&gt;G&lt;sub&gt;itm&lt;/sub&gt;&lt;/b&gt; Construction&lt;br&gt;&lt;i&gt;(Service Call Graph + Metric)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FTM_GRL" parent="TraceMetricBranch" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="&lt;b&gt;f&lt;sub&gt;tm&lt;/sub&gt;&lt;/b&gt;(G&lt;sub&gt;itm&lt;/sub&gt;)&lt;br&gt;&lt;i&gt;(Graph Neural Network)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="200" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="H_ITM" parent="TraceMetricBranch" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b6b6b6;" value="&lt;i&gt;h&lt;sub&gt;itm&lt;/sub&gt;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="40" width="60" x="350" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="gitm_to_ftm" edge="1" parent="TraceMetricBranch" source="GITM_Constr" style="endArrow=classic;html=1;" target="FTM_GRL" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="160" y="70" as="sourcePoint" />
+            <mxPoint x="210" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ftm_to_hitm" edge="1" parent="TraceMetricBranch" source="FTM_GRL" style="endArrow=classic;html=1;" target="H_ITM" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="320" y="70" as="sourcePoint" />
+            <mxPoint x="370" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z_trace_to_gitm" edge="1" parent="1" source="z_trace" style="endArrow=classic;html=1;curved=1;" target="GITM_Constr" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="290" />
+              <mxPoint x="550" y="270" />
+              <mxPoint x="550" y="250" />
+            </Array>
+            <mxPoint x="540" y="290" as="sourcePoint" />
+            <mxPoint x="570" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z_metric_to_gitm" edge="1" parent="1" source="z_metric" style="endArrow=classic;html=1;curved=1;" target="GITM_Constr" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="240" />
+              <mxPoint x="550" y="230" />
+            </Array>
+            <mxPoint x="540" y="240" as="sourcePoint" />
+            <mxPoint x="570" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="LogBranch" parent="1" style="swimlane;html=1;rounded=1;fillColor=#F5F5F5;strokeColor=#666666;" value="&lt;b&gt;Log Branch&lt;/b&gt;" vertex="1">
+          <mxGeometry height="170" width="430" x="560" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="GILOG_Constr" parent="LogBranch" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#FFF2CC;strokeColor=#B6B6B6;" value="&lt;b&gt;G&lt;sub&gt;ilog&lt;/sub&gt;&lt;/b&gt; Construction&lt;br&gt;&lt;i&gt;(Log Heterogeneous Graph)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="10" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FLOG_GRL" parent="LogBranch" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="&lt;b&gt;f&lt;sub&gt;log&lt;/sub&gt;&lt;/b&gt;(G&lt;sub&gt;ilog&lt;/sub&gt;)&lt;br&gt;&lt;i&gt;(Heterogeneous GNN)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="200" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="H_ILOG" parent="LogBranch" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b6b6b6;" value="&lt;i&gt;h&lt;sub&gt;ilog&lt;/sub&gt;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="40" width="60" x="350" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="gilog_to_flog" edge="1" parent="LogBranch" source="GILOG_Constr" style="endArrow=classic;html=1;" target="FLOG_GRL" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="160" y="70" as="sourcePoint" />
+            <mxPoint x="210" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flog_to_hilog" edge="1" parent="LogBranch" source="FLOG_GRL" style="endArrow=classic;html=1;" target="H_ILOG" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="320" y="70" as="sourcePoint" />
+            <mxPoint x="370" y="70" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z_log_to_gilog" edge="1" parent="1" source="z_log" style="endArrow=classic;html=1;curved=1;" target="GILOG_Constr" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="190" />
+              <mxPoint x="550" y="330" />
+            </Array>
+            <mxPoint x="540" y="190" as="sourcePoint" />
+            <mxPoint x="570" y="360" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CrossModalFusion" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;" value="&lt;b&gt;Cross-Modal Fusion&lt;/b&gt;&lt;br&gt;&lt;i&gt;(Uncertainty-aware Hierarchical Dynamic Fusion)&lt;/i&gt;" vertex="1">
+          <mxGeometry height="70" width="200" x="675" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="hitm_to_fusion" edge="1" parent="1" source="H_ITM" style="endArrow=classic;html=1;curved=1;" target="CrossModalFusion" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="930" y="400" />
+              <mxPoint x="875" y="470" />
+            </Array>
+            <mxPoint x="930" y="320" as="sourcePoint" />
+            <mxPoint x="775" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hilog_to_fusion" edge="1" parent="1" source="H_ILOG" style="endArrow=classic;html=1;curved=1;" target="CrossModalFusion" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="930" y="470" />
+              <mxPoint x="875" y="490" />
+            </Array>
+            <mxPoint x="930" y="420" as="sourcePoint" />
+            <mxPoint x="775" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="h_itm_prime" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b6b6b6;" value="&lt;i&gt;h&#39;&lt;sub&gt;itm&lt;/sub&gt;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="40" width="60" x="670" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="h_ilog_prime" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#b6b6b6;" value="&lt;i&gt;h&#39;&lt;sub&gt;ilog&lt;/sub&gt;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="40" width="60" x="840" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="fusion_to_hitm_prime" edge="1" parent="1" source="CrossModalFusion" style="endArrow=classic;html=1;" target="h_itm_prime" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="775" y="590" as="sourcePoint" />
+            <mxPoint x="700" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fusion_to_hilog_prime" edge="1" parent="1" source="CrossModalFusion" style="endArrow=classic;html=1;" target="h_ilog_prime" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="775" y="590" as="sourcePoint" />
+            <mxPoint x="870" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Concatenation" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" value="Concat" vertex="1">
+          <mxGeometry height="40" width="80" x="745" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="hitm_prime_to_concat" edge="1" parent="1" source="h_itm_prime" style="endArrow=classic;html=1;curved=1;" target="Concatenation" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="710" y="650" as="sourcePoint" />
+            <mxPoint x="785" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hilog_prime_to_concat" edge="1" parent="1" source="h_ilog_prime" style="endArrow=classic;html=1;curved=1;" target="Concatenation" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="870" y="650" as="sourcePoint" />
+            <mxPoint x="785" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MLP" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;" value="MLP Classifier" vertex="1">
+          <mxGeometry height="40" width="100" x="735" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="concat_to_mlp" edge="1" parent="1" source="Concatenation" style="endArrow=classic;html=1;" target="MLP" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="785" y="710" as="sourcePoint" />
+            <mxPoint x="785" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AnomalyOutput" parent="1" style="shape=document;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontColor=#B85450;" value="&lt;b&gt;Anomaly Probability (&lt;i&gt;y&lt;sub&gt;i&lt;/sub&gt;&lt;/i&gt;)&lt;/b&gt;" vertex="1">
+          <mxGeometry height="50" width="150" x="710" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="mlp_to_output" edge="1" parent="1" source="MLP" style="endArrow=classic;html=1;" target="AnomalyOutput" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="785" y="770" as="sourcePoint" />
+            <mxPoint x="785" y="780" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CoTrainingArrow" edge="1" parent="1" source="AnomalyOutput" style="endArrow=classic;html=1;dashed=1;strokeColor=#006600;fontColor=#006600;" value="&lt;i&gt;Loss &amp;amp; Constraints&lt;/i&gt;">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="795" />
+              <mxPoint x="1050" y="750" />
+              <mxPoint x="1050" y="525" />
+            </Array>
+            <mxPoint x="860" y="795" as="sourcePoint" />
+            <mxPoint x="1100" y="536.1111111111111" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="CoTrainingArrow2" edge="1" parent="1" source="CrossModalFusion" style="endArrow=classic;html=1;dashed=1;strokeColor=#006600;fontColor=#006600;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="555" />
+            </Array>
+            <mxPoint x="875" y="555" as="sourcePoint" />
+            <mxPoint x="1100" y="569.4444444444443" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
