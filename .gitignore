@@ -6,6 +6,10 @@ Thumbs.db
 ~$*.pptx
 ~$*.xlsx
 
+# WPS / macOS cache and lock files
+.~*
+.$*
+
 # Editor metadata
 .idea/
 .vscode/

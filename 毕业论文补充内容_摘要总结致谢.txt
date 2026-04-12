@@ -1,0 +1,64 @@
+摘  要
+
+随着微服务架构和云原生技术的广泛应用，系统运行过程会持续产生指标、日志和调用链追踪等多源异构监控数据。单一模态异常检测方法难以同时刻画系统性能波动、行为语义变化和异常传播路径，多源方法又普遍存在整体框架松散、特征表征不足以及融合机制静态粗糙等问题。围绕上述问题，本文以微服务系统为研究对象，针对多源异构时序数据异常检测任务，研究统一框架设计、差异化特征增强与提取以及层次化动态融合方法。
+
+首先，本文构建了面向指标、日志和调用链追踪数据的统一异常检测框架。该框架以时间窗对齐为基础，将原始监控数据组织为“特征增强与提取 - 图构建与图表示学习 - 动态融合 - 异常判别”的完整流程，并结合多损失联合优化机制，提升表示空间的稳定性与可分性。其次，针对不同模态的结构特征，本文分别设计了差异化的特征增强与提取方法。对于日志数据，采用模板提取、频次统计、比例关系构建和日志级别统计等方式完成结构化增强，并结合深度投影、可学习位置编码、局部注意力、门控残差与双池化策略提取事件语义和上下文关系；对于调用链数据，围绕调用频次、调用时延和全局负载构造增强特征，并利用残差扩张卷积、双向 GRU 与门控融合机制挖掘异常传播模式；对于指标数据，采用多尺度卷积、残差结构、自注意力与双池化机制提取多变量时间序列中的局部波动与全局依赖。在此基础上，本文分别构建 Trace-Metric 联合图与日志异构图，以显式保留调用结构、性能状态、日志语义及跨服务转移关系。进一步地，针对多模态信息质量不稳定、模态冲突明显等问题，本文提出基于不确定性感知混合专家的层次化动态融合方法，通过不确定性估计、风险感知路由、混合专家交互和输出门控，实现跨模态信息的自适应整合。
+
+实验在 GAIA 数据集中构建的两个微服务异常检测数据集上开展。结果表明，本文方法在整体性能以及异常样本识别能力方面优于对比方法，尤其在 Recall 和 F1-score 等关键指标上表现出较好的稳定性；消融实验和模态敏感性实验进一步验证了差异化特征建模与动态融合机制的有效性。本文研究为面向微服务系统的多源异构监控数据异常检测提供了一种具有系统性、鲁棒性和可扩展性的技术方案，也为后续智能运维场景中的异常预警、故障分析与辅助决策提供了方法参考。
+
+关键词：微服务系统；多源异构时序数据；异常检测；图神经网络；动态融合；不确定性感知
+
+
+Abstract
+
+With the widespread adoption of microservice architecture and cloud-native technologies, system operation continuously generates multi-source heterogeneous monitoring data such as metrics, logs, and traces. Existing single-modal anomaly detection methods cannot jointly capture performance fluctuations, behavioral semantics, and anomaly propagation paths, while existing multi-source methods still suffer from loose overall frameworks, insufficient feature representation, and shallow static fusion mechanisms. To address these issues, this thesis focuses on anomaly detection for multi-source heterogeneous time series data in microservice systems, and studies unified framework design, modality-specific feature enhancement and extraction, and hierarchical dynamic fusion.
+
+First, a unified anomaly detection framework is constructed for metrics, logs, and traces. Based on time-window alignment, the framework organizes the original monitoring data into a complete pipeline consisting of feature enhancement and extraction, graph construction and graph representation learning, dynamic fusion, and anomaly classification. A multi-loss joint optimization strategy is further introduced to improve the stability and separability of the learned representation space. Second, modality-specific enhancement and extraction methods are designed according to the structural characteristics of different data sources. For log data, structured enhancement is performed through template extraction, frequency statistics, proportion construction, and log-level statistics, and event semantics as well as contextual dependencies are modeled with deep projection, learnable positional encoding, local attention, gated residual connections, and dual pooling. For trace data, enhanced features are built from call frequency, call latency, and global workload, and anomaly propagation patterns are extracted through residual dilated convolution, bidirectional GRU, and gated fusion. For metric data, multi-scale convolution, residual structures, self-attention, and dual pooling are employed to capture both local fluctuations and global dependencies in multivariate time series. On this basis, a Trace-Metric joint graph and a heterogeneous log graph are constructed to explicitly preserve call structures, performance states, log semantics, and cross-service transitions. Furthermore, to address unstable modality quality and obvious cross-modal conflicts, an uncertainty-aware hierarchical dynamic fusion method with mixture-of-experts is proposed. By integrating uncertainty estimation, risk-aware routing, expert interaction, and output gating, the method adaptively combines cross-modal information.
+
+Experiments are conducted on two microservice anomaly detection datasets built from the GAIA benchmark. The results show that the proposed method outperforms representative baselines in overall performance and abnormal-sample recognition ability, especially on key metrics such as Recall and F1-score. Ablation studies and modality sensitivity experiments further verify the effectiveness of modality-specific representation learning and the proposed dynamic fusion mechanism. This work provides a systematic, robust, and extensible solution for anomaly detection on multi-source heterogeneous monitoring data in microservice systems, and offers methodological support for intelligent operation and maintenance scenarios such as anomaly early warning, fault analysis, and decision assistance.
+
+Key words: microservice systems; multi-source heterogeneous time series data; anomaly detection; graph neural network; dynamic fusion; uncertainty awareness
+
+
+总结与展望
+
+总结
+
+本文围绕微服务系统中的多源异构时序数据异常检测问题展开研究，针对现有方法在整体框架设计、模态特征表征以及融合机制动态性方面存在的不足，构建了一套由时间对齐、特征增强、双图建模、跨模态动态融合和联合优化组成的系统异常检测方法体系。全文的主要工作可以概括如下。
+
+第一，面向指标、日志和调用链追踪三类异构监控数据，本文设计了统一的异常检测总体框架。该框架从问题定义出发，对样本构造、时间窗对齐、图表示学习、跨模态交互以及异常判别进行了系统组织，使多源监控数据能够在同一体系下完成表示、融合与推断，为复杂微服务异常场景下的建模提供了清晰且可扩展的方法基础。
+
+第二，围绕不同模态的结构特点，本文提出了差异化的特征增强与提取方法。针对日志数据，重点增强模板语义、事件上下文和窗口级统计关系；针对调用链数据，重点刻画服务传播结构、调用频次与时延变化；针对指标数据，重点建模多尺度时序模式和全局依赖关系。在此基础上，进一步构建 Trace-Metric 联合图与日志异构图，使原始监控数据从分散的观测信号转化为兼具结构信息和语义信息的图表示，为后续异常检测提供了更加稳定、更加丰富的输入基础。
+
+第三，针对传统融合方法难以适应样本间模态质量变化和跨模态冲突的问题，本文提出了基于不确定性感知混合专家的层次化动态融合方法。该方法通过不确定性估计显式刻画模态可靠性与冲突程度，并借助动态路由在不同融合专家之间进行自适应选择，从而实现对复杂异常场景下多模态信息的灵活整合。该设计增强了模型对高噪声样本、弱信号样本以及异步传播异常的适应能力，也提升了融合过程的鲁棒性和可解释性。
+
+第四，本文在 GAIA 数据集中构建的两个微服务异常检测数据集上对所提方法进行了实验验证。总体对比实验表明，本文方法在整体性能和异常样本识别能力方面具有较好优势；消融实验验证了特征增强、建图逻辑和动态融合模块的必要性；模态敏感性实验说明日志、调用链追踪和指标三类模态在异常检测中具有明显互补性。上述结果从整体有效性、模块贡献和模态依赖性三个层面支撑了本文方法的合理性。
+
+总体而言，本文围绕多源异构时序数据异常检测中的关键问题进行了较为系统的研究，在统一框架构建、差异化模态建模和动态融合机制设计方面形成了相对完整的技术链路。相关研究不仅丰富了微服务异常检测的建模思路，也为智能运维场景中多源监控数据的联合分析提供了有价值的参考。
+
+展望
+
+尽管本文围绕多源异构时序数据异常检测问题进行了较为系统的研究，并取得了一定结果，但仍存在进一步深化和完善的空间，未来可从以下几个方面继续开展研究。
+
+第一，进一步提升模型的跨场景泛化能力。本文实验主要基于 GAIA 数据集中构建的两个微服务数据集展开，虽然能够验证方法的有效性，但真实工业场景中的系统规模、业务类型、日志风格和异常分布往往更加复杂。未来可在更多公开数据集和真实业务环境中开展验证，并结合迁移学习、领域自适应或持续学习等方法，提升模型在跨系统、跨场景条件下的泛化能力。
+
+第二，进一步增强模型的在线部署能力与实时性。本文提出的方法包含多模态增强、双图构建和动态融合等多个模块，在离线实验环境中能够取得较好效果，但在实际运维平台中仍需综合考虑计算开销、推理时延和资源消耗。未来可从模型轻量化、增量更新、流式处理和在线学习等角度展开优化，使其更适合高吞吐、低时延的生产环境。
+
+第三，推动异常检测向故障诊断与根因分析延伸。本文的研究重点在于异常检测本身，即判断系统是否发生异常，而对异常原因解释、故障传播链重建以及修复建议生成的研究仍有待深入。未来可将异常检测结果与服务依赖图、知识图谱或因果分析方法结合，进一步提升模型在根因定位、影响面评估和辅助运维决策中的应用价值。
+
+第四，进一步研究复杂条件下的鲁棒融合机制。在实际环境中，监控数据可能出现缺失、延迟、采样不均衡或模态失配等问题，异常传播也可能表现出更强的非平稳性和长时依赖特征。未来可面向缺失模态、弱监督标注、类别不平衡和概念漂移等场景，探索更加稳健的自监督表示学习、缺失感知融合和不确定性建模方法，以持续提升模型在复杂动态环境中的稳定性与适应能力。
+
+综上所述，面向微服务系统的多源异构时序数据异常检测仍具有广阔的研究空间。随着可观测性体系、图表示学习和多模态智能分析技术的不断发展，该方向有望在异常预警、故障定位、智能诊断以及自动化运维等方面发挥更大的作用。
+
+
+致谢
+
+行文至此，硕士阶段的学习与论文撰写工作也即将告一段落。回顾这段求学经历，从课程学习、课题研究到论文完成，我在学术能力、工程实践和思维方式上都得到了许多锻炼与成长。这篇论文的完成离不开许多老师、同学和家人的支持与帮助，在此谨向所有关心、帮助和鼓励过我的人致以诚挚的感谢。
+
+首先，我要衷心感谢我的导师高小鹏教授。在论文选题、研究思路、实验设计和论文写作的全过程中，高老师都给予了我耐心细致的指导。无论是在研究方向的把握上，还是在学术规范与科研态度的培养上，高老师都给予了我极大的帮助。老师严谨认真的治学态度、求真务实的科研作风以及对学生负责的精神，使我受益良多，也将持续影响我今后的学习与工作。
+
+其次，感谢北京航空航天大学计算机学院的各位老师。在硕士阶段的学习过程中，老师们不仅传授了扎实的专业知识，也让我对计算机技术、智能运维以及相关研究领域有了更加系统和深入的理解。感谢课题组和实验室的同学们在课题讨论、实验交流和日常学习中的帮助与陪伴。与你们共同学习和成长的过程，让这段科研经历充满了温暖与力量。
+
+同时，我也要感谢我的家人。感谢父母和家人一直以来给予我的理解、包容与支持。在我面对压力和困难时，是你们始终给予我鼓励和信心，让我能够坚持完成硕士阶段的学习任务。你们的关心与付出，是我不断前行的重要动力。
+
+最后，感谢所有在我求学和论文写作过程中给予帮助的人。正是因为有你们的支持与陪伴，我才能顺利完成这一阶段的学习与研究工作。未来无论身处何方，我都会珍惜这段经历，继续以认真、踏实的态度面对今后的学习、工作与生活。
